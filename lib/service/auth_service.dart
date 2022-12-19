@@ -25,8 +25,7 @@ class AuthService {
         token: '',
       );
 
-      var response = await http.post(
-          Uri.parse('http://192.168.1.4:3000/api/signup'),
+      var response = await http.post(Uri.parse('/api/signup'),
           body: user.toJson(),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
