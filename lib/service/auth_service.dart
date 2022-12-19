@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
-import 'package:portfolioweb/constents/error_handling.dart';
-import 'package:portfolioweb/models/user.dart';
+
 import 'package:http/http.dart' as http;
+
+import '../constents/error_handling.dart';
+import '../models/user.dart';
 
 class AuthService {
   void signUpUser({
@@ -53,13 +55,12 @@ class AuthService {
     required String password,
   }) async {
     try {
-      http.Response response =
-          await http.post(Uri.parse('http://192.168.1.4:3000/api/signin'),
-              body: jsonEncode({
-                'email': email,
-                'password': password,
-              }),
-              headers: <String, String>{
+      http.Response response = await http.post(Uri.parse('/api/signin'),
+          body: jsonEncode({
+            'email': email,
+            'password': password,
+          }),
+          headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           });
       print(response.body);
